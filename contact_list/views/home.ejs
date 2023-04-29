@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%=locals.tittle%>
+
+
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+
+<body>
+    <h1> My Contact list</h1>
+    <div id="parentdiv">
+        <ul>
+            <% for (let i of contact_List ){ %>
+                <li id="liiii">
+                    <p id="parali">
+                        <%= i.name %>
+                    </p>
+                    <p id="paralii">
+                        <%= i.phone %>
+                    </p>
+
+                    <div class="delete">
+                        <a href='/delete-contact/<%= i.phone %>'> <i class="fa fa-trash"></i> </a>
+                    </div>
+                </li>
+                <% } %>
+        </ul>
+    </div>
+
+    <!-- taking data trough the form -->
+
+    <div id="formdiv">
+        <form action="/create-contact" method="post" id="formm">
+
+
+            <input type="text" name="name" placeholder="Your Name" required id="inputone">
+            <input type="number" name="phone" placeholder="Phone Number" required id="inputtwo">
+
+
+            <button type="submit" id="submit">SUBMIT</button>
+
+        </form>
+
+
+
+
+
+
+    </div>
+
+
+    <script src="/js/home.js"></script>
+</body>
+
+</html>
